@@ -9,12 +9,16 @@ try
     string input1 = Console.ReadLine();
     string input2 = Console.ReadLine();
     calculator.Divide(input1, input2);
-    Console.WriteLine($"결과: {calculator.Number1} / {calculator.Number2} = {calculator.Number1 / calculator.Number2}");
+    Console.WriteLine($"{calculator.Number1} / {calculator.Number2} = {calculator.Number1 / calculator.Number2}");
 
 }
 catch (DivideByZeroException ex)
 {
     Console.WriteLine($"[계산 오류] {ex.Message}");
+}
+catch (FormatException ex)
+{
+    Console.WriteLine($"[입력 오류] {ex.Message}");
 }
 class SafeCalculator
 {
