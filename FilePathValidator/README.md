@@ -8,7 +8,8 @@
 
 1. `ValidatePath(string path)` - 경로 검증
    - null 또는 빈 문자열이면 `ArgumentNullException` 발생
-   - 금지 문자(`<`, `>`, `|`, `"`, `*`, `?`) 포함 시 "경로에 금지 문자 '{문자}'가 포함되어 있습니다." `ArgumentException` 발생
+   - 금지 문자(`<`, `>`, `|`, `"`, `*`, `?`) 포함 시 
+	- "경로에 금지 문자 '{문자}'가 포함되어 있습니다." `ArgumentException` 발생
    - 경로 길이가 260자를 초과하면 "경로 길이가 260자를 초과합니다." `ArgumentOutOfRangeException` 발생
    - 유효하면 "경로가 유효합니다: {path}" 출력
 
