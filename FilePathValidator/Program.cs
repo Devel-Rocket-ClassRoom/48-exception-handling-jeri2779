@@ -49,7 +49,7 @@ static void TestExtension(FilePathValidator validator, string path, string[] all
     }
     catch (ArgumentException ex)
     {
-        // 예외 메시지에서 파라미터 정보(Parameter 'path')를 제외하고 깔끔하게 출력합니다.
+        // 예외 메시지에서 파라미터 정보(Parameter 'path')를 제외
         string cleanMessage = ex.Message.Split('\r')[0];//
         Console.WriteLine($"[Argument 오류] {cleanMessage}");
     }
@@ -80,13 +80,15 @@ public class FilePathValidator
 
         Console.WriteLine($"경로가 유효합니다: {path}");
     }
-
+    // 확장자 검증 메서드
     public void ValidateExtension(string path, string[] allowedExtensions)
     {
-        string extension = Path.GetExtension(path);
-        if(!allowedExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase))
+        string extension = Path.GetExtension(path);// 확장자 추출
+        if (!allowedExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase))
+        // 대소문자 구분 없이 허용된 확장자 목록에 포함되어 있는지 체크
         {
             throw new ArgumentException($"허용되지 않은 확장자입니다: {extension}", nameof(path));
+            
         }
         Console.WriteLine($"확장자가 유효합니다: {extension}");
 

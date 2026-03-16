@@ -39,7 +39,7 @@ inventory.ShowItems();
 class Inventory
 {
     private int maxCapacity {  get; set; }
-    private List<string> items = new List<string>();
+    private List<string> items = new List<string>();// 인벤토리 아이템 목록
 
     public Inventory(int capacity)
     {
@@ -47,7 +47,7 @@ class Inventory
     }
     public void AddItem(string itemName)
     {
-        if(maxCapacity <= items.Count)
+        if(maxCapacity <= items.Count)// 최대 용량 예외 처리
         {
              throw new InvalidOperationException($"인벤토리가 가득 찼습니다. (아이템: {itemName})");
         }
@@ -58,7 +58,7 @@ class Inventory
 
     public void RemoveItem(string itemName)
     {
-        if(!items.Contains(itemName))
+        if(!items.Contains(itemName))// 아이템 존재 여부 예외 처리
         {
             throw new ItemNotFoundException(itemName);
         }
@@ -77,7 +77,7 @@ class Inventory
 
 }
 
-class ItemNotFoundException : Exception
+class ItemNotFoundException : Exception// 아이템을 찾을 수 없을 때 예외 처리
 {
     public string ItemName { get; }
     public ItemNotFoundException(string itemName) : base($"아이템을 찾을 수 없습니다: {itemName}")
